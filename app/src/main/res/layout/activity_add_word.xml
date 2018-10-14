@@ -2,10 +2,9 @@
 
 <layout>
     <data>
-
         <variable
-            name="onClickListenerWithView"
-            type="com.example.root.roomlivedatajava.view.OnClickListenerWithView"/>
+            name="addWord"
+            type="com.example.root.roomlivedatajava.view.AddWordActivity"/>
     </data>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -28,7 +27,7 @@
         android:padding="10dp"
         android:layout_width="wrap_content"
         android:id="@+id/button_save"
-        android:onClick="@{() -> onClickListenerWithView.onClick(editWord)}"
+        android:onClick="@{() -> addWord.onClick(editWord)}"
         android:text="@string/button_save" />
 </LinearLayout>
 

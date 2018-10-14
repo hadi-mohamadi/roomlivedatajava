@@ -29,8 +29,8 @@
             android:layout_marginBottom="24dp"
             android:layout_marginEnd="24dp"
             android:layout_marginRight="24dp"
-            android:onClick="@{() -> onClickListener.onClick()}"
             android:src="@drawable/ic_add"
+            android:onClick="@{() -> onClickListener.onClick()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
