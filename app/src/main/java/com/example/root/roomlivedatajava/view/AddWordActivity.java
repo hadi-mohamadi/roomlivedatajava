@@ -1,32 +1,35 @@
-package com.example.root.roomlivedatajava;
+package com.example.root.roomlivedatajava.view;
 
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 
-public class NewWordActivity extends AppCompatActivity {
+import com.example.root.roomlivedatajava.R;
+import com.example.root.roomlivedatajava.databinding.ActivityAddWordBinding;
+
+public class AddWordActivity extends AppCompatActivity {
 
     public static final String EXTRA_REPLY =
             "com.example.android.roomwordssample.REPLY";
-    private EditText mEditWordView;
 
+    ActivityAddWordBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_word);
+        binding= DataBindingUtil.setContentView(this, R.layout.activity_add_word);
         initialize();
+
     }
 
     private void initialize(){
-        mEditWordView = findViewById(R.id.edit_word);
-
-        final Button button = findViewById(R.id.button_save);
-        button.setOnClickListener(new View.OnClickListener() {
+        OnClickListenerWithView onClickListener=new OnClickListenerWithView() {
+            @Override
             public void onClick(View view) {
+                EditText mEditWordView=(EditText) view;
                 Intent replyIntent = new Intent();
                 if (TextUtils.isEmpty(mEditWordView.getText())) {
                     setResult(RESULT_CANCELED, replyIntent);
@@ -37,6 +40,9 @@ public class NewWordActivity extends AppCompatActivity {
                 }
                 finish();
             }
-        });
+        };
+
+        binding.setOnClickListenerWithView(onClickListener);
+
     }
 }

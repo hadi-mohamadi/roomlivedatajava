@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout>
+    <data>
+
+        <variable
+            name="onClickListenerWithView"
+            type="com.example.root.roomlivedatajava.view.OnClickListenerWithView"/>
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorScreenBackground"
@@ -20,5 +28,8 @@
         android:padding="10dp"
         android:layout_width="wrap_content"
         android:id="@+id/button_save"
+        android:onClick="@{() -> onClickListenerWithView.onClick(editWord)}"
         android:text="@string/button_save" />
 </LinearLayout>
+
+</layout>
